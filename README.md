@@ -63,7 +63,7 @@ $ kubectl create namespace microcks
 
 $ helm install strimzi strimzi/strimzi-kafka-operator --namespace microcks
 
-helm install microcks https://github.com/carolgschwend/lab/releases/download/microcks-1.5.2-lab/microcks-1.5.2-lab.tgz \
+$ helm install microcks https://github.com/carolgschwend/lab/releases/download/microcks-1.5.2-lab/microcks-1.5.2-lab.tgz \
     --namespace microcks --set appName=microcks \
     --set microcks.url=microcks.microcks --set keycloak.url=keycloak.microcks 
     --set features.async.enabled=true \
