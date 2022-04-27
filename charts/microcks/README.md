@@ -1,4 +1,4 @@
-# Microcks Lab
+#Microcks Lab
 
 This chart bootstraps a new [Microcks](http://microcks.io) application using the [Helm](https://helm.sh) package manager.
 
@@ -8,9 +8,9 @@ The **Lab** configuration exposes the sslRequired property and defaults to **'no
 
 Resources within this directory should work with Helm version 3+ (which do not need the Tiller server-side component).
 
-## Installing the Chart
+##Installing the Chart
 
-### Simple install - with no asynchronous mocking
+###Simple install - with no asynchronous mocking
 
 From the [Helm Hub](https://hub.helm.sh) directly - assuming here for the example, you are running `minikube`:
 
@@ -82,7 +82,7 @@ You may want to configure an Identity Provider or add some users for your Microc
 username and password found into 'microcks-keycloak-admin' secret.
 ```
 
-### Advanced install - with asynchronous mocking
+###Advanced install - with asynchronous mocking
 
 Since release `1.0.0`, Microcks supports mocking of event-driven API thanks to [AsyncAPI Spec](https://asyncapi.com). Microcks will take care of publishing sample messages for you on a message broker. You may reuse an existing broker or let Microcks deploy its own (this is the default when turning on this feature).
 
@@ -135,7 +135,7 @@ It has been exposed using TLS passthrough of the Ingress controller, you shoud e
 
 [This video](https://www.youtube.com/watch?v=u7SP1bQ8_FE) details the setup.
 
-## Configuration
+##Configuration
 
 All configurable variables and default values can be seen in `values.yaml`, with reasonable comments.
 
@@ -199,7 +199,7 @@ The table below describes all the fields of the `values.yaml`, providing informa
 | `features`    | `async.enabled`    | **Optional**. Feature allowing to mock an tests asynchronous APIs through Events. Enabling it requires an active message broker. Default is `false`. |
 | `features`    | `async.image`      | **Optional**. The reference of container image used for `async-minion` component. Chart comes with its default version. |
 
-### Kafka feature details
+###Kafka feature details
 
 Here are below the configuration properties of the Kafka support feature:
 
@@ -221,7 +221,7 @@ Here are below the configuration properties of the Kafka support feature:
 | `features.async.kafka.authentication` | `saslMechanism` | **Optional**. For SASL authentication, you'll have to specify an additional authentication mechanism such as `SCRAM-SHA-512` |
 | `features.async.kafka.authentication` | `saslJaasConfig` | **Optional**. For SASL authentication, you'll have to specify a JAAS configuration line with login module, username and password. |
 
-#### MQTT feature details
+####MQTT feature details
 
 Here are below the configuration properties of the MQTT support feature:
 
@@ -231,7 +231,7 @@ Here are below the configuration properties of the MQTT support feature:
 | `features.async.mqtt` | `username`   | **Optional**. The username to use for connecting to secured MQTT broker. Default to `microcks`. |
 | `features.async.mqtt` | `password`   | **Optional**. The password to use for connecting to secured MQTT broker. Default to `microcks`. |
 
-#### WebSocket feature details
+####WebSocket feature details
 
 Here are below the configuration properties of the WebSocket support feature:
 
@@ -241,7 +241,7 @@ Here are below the configuration properties of the WebSocket support feature:
 | `features.async.ws` | `ingressAnnotations`  | **Optional**. A map of annotations that will be added to the `Ingress` for Microcks WebSocket mocks. If these annotations are triggering a Certificate generation (for example through [cert-mamanger.io](https://cert-manager.io/)). The `generateCert` property should be set to `false`. |
 | `features.async.ws` | `generateCert`        | **Optional**. Whether to generate self-signed certificate or not if no valid `ingressSecretRef` provided. Default is `true` |
 
-#### AMQP feature details
+####AMQP feature details
 
 Here are below the configuration properties of the AMQP support feature:
 
@@ -251,7 +251,7 @@ Here are below the configuration properties of the AMQP support feature:
 | `features.async.amqp` | `username`   | **Optional**. The username to use for connecting to secured AMQP broker. Default to `microcks`. |
 | `features.async.amqp` | `password`   | **Optional**. The password to use for connecting to secured AMQP broker. Default to `microcks`. |
 
-### Examples
+###Examples
 
 You may want to launch custom installation with such a command:
 
@@ -272,7 +272,7 @@ or - with included Kafka for async mocking turned on:
     --set features.async.kafka.url=microcks.microcks
  ```
 
-## Checking everything is OK
+##Checking everything is OK
 
 Just check you've got this 5 running pods:
 
@@ -286,7 +286,7 @@ microcks-mongodb-6d558666dc-zdhxl               1/1     Running   0          39s
 microcks-postman-runtime-58bf695b59-nm858       1/1     Running   0          39s
 ```
 
-## Deleting the Chart
+##Deleting the Chart
 
 ```console
 helm delete microcks
