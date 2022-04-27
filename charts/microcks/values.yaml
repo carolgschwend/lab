@@ -152,7 +152,7 @@ features:
       # you may need to set some authentication parameters.
       authentication:
         # If not 'none', we support 'SSL' for mutual TLS and 'SASL_SSL' for SASL over TLS.
-        type: none # SSL # SASL_SSL
+        type: none  # SSL  # SASL_SSL
         # For TLS transport, you'll always need a truststore to hold your cluster certificate.
         # You have to setup a truststore type and a secret reference for retrieving content and password.
         # truststoreType: PKCS12
