@@ -19,7 +19,7 @@ $ helm repo add microcks https://carolgschwend.github.io/microcks.io/helm
 
 $ kubectl create namespace microcks
 
-$ helm install microcks microcks/microcks —-version 1.5.1-lab --namespace microcks --set appName=microcks \
+$ helm install microcks microcks/microcks —-version 1.5.2-lab --namespace microcks --set appName=microcks \
     --set microcks.url=microcks.microcks --set keycloak.url=keycloak.microcks \
     --set keycloak.privateUrl=http://microcks-keycloak.microcks.svc.cluster.local:8080/auth \
     --set keycloak.sslRequired=none --set microcks.realm.sslRequired=none  
@@ -54,7 +54,7 @@ $ git clone https://github.com/carolgschwend/microcks
 
 $ cd install/kubernetes
 
-$ helm install microcks ./microcks —-version 1.5.1-lab --namespace microcks --set appName=microcks \
+$ helm install microcks ./microcks —-version 1.5.2-lab --namespace microcks --set appName=microcks \
     --set microcks.url=microcks.microcks --set keycloak.url=keycloak.microcks \
     --set keycloak.privateUrl=http://microcks-keycloak.microcks.svc.cluster.local:8080/auth \ 
     --set keycloak.sslRequired=none --set microcks.realm.sslRequired=none  
@@ -98,7 +98,7 @@ $ kubectl create namespace microcks
 
 $ helm install strimzi strimzi/strimzi-kafka-operator --namespace microcks
 
-$ helm install microcks ./microcks —-version 1.5.1-lab --namespace microcks --set appName=microcks \
+$ helm install microcks ./microcks —-version 1.5.2-lab --namespace microcks --set appName=microcks \
     --set microcks.url=microcks.microcks --set keycloak.url=keycloak.microcks \
     --set keycloak.privateUrl=http://microcks-keycloak.microcks.svc.cluster.local:8080/auth \
     --set keycloak.sslRequired=none --set microcks.realm.sslRequired=none \
