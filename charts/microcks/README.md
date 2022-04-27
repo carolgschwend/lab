@@ -2,26 +2,25 @@
 
 This chart bootstraps a new [Microcks](http://microcks.io) application using the [Helm](https://helm.sh) package manager.
 
-	@@ -7,288 +7,3 @@ The **Lab** configuration exposes the sslRequired property and defaults to **'no
+	 The Lab configuration exposes the sslRequired property and defaults to 'none'
 
 
 Resources within this directory should work with Helm version 3+ (which do not need the Tiller server-side component).
 
 ## Installing the Chart
 
-### imple install - with no asynchronous mocking
+### Simple install - with no asynchronous mocking
 
 From the [Helm Hub](https://hub.helm.sh) directly - assuming here for the example, you are running `minikube`:
 
 ```console
-$ helm repo add microcks https://carolgschwend.github.io/microcks.io/helm
+$ helm repo add microcks https://carolgschwend.github.io/lab
 
 $ kubectl create namespace microcks
 
-$ helm install microcks microcks/microcks —-version 1.5.2-lab --namespace microcks --set appName=microcks \
-    --set microcks.url=microcks.microcks --set keycloak.url=keycloak.microcks \
-    --set keycloak.privateUrl=http://microcks-keycloak.microcks.svc.cluster.local:8080/auth \
-    --set keycloak.sslRequired=none --set microcks.realm.sslRequired=none  
+$ helm install microcks https://github.com/carolgschwend/lab/releases/download/microcks-1.5.2-lab/microcks-1.5.2-lab.tgz \
+      --namespace microcks --set appName=microcks \
+      --set microcks.url=microcks.microcks --set keycloak.url=keycloak.microcks    
   
 NAME: microcks
 LAST DEPLOYED: Mon Oct 04 12:13:32 2021
@@ -46,40 +45,7 @@ You may want to configure an Identity Provider or add some users for your Microc
 username and password found into 'microcks-keycloak-admin' secret.
 ```
 
-From the sources cloned locally:
 
-```console
-$ git clone https://github.com/carolgschwend/microcks
-
-$ cd install/kubernetes
-
-$ helm install microcks ./microcks —-version 1.5.2-lab --namespace microcks --set appName=microcks \
-    --set microcks.url=microcks.microcks --set keycloak.url=keycloak.microcks \
-    --set keycloak.privateUrl=http://microcks-keycloak.microcks.svc.cluster.local:8080/auth \ 
-    --set keycloak.sslRequired=none --set microcks.realm.sslRequired=none  
-
-NAME: microcks
-LAST DEPLOYED: Wed Apr 28 16:15:22 2021
-NAMESPACE: microcks
-STATUS: deployed
-REVISION: 1
-TEST SUITE: None
-NOTES:
-Thank you for installing microcks.
-
-Your release is named microcks.
-
-To learn more about the release, try:
-
-  $ helm status microcks
-  $ helm get microcks
-
-Microcks is available at https://microcks.microcks
-
-Keycloak has been deployed on https://keycloak.microcks/auth to protect user access.
-You may want to configure an Identity Provider or add some users for your Microcks installation by login in using the
-username and password found into 'microcks-keycloak-admin' secret.
-```
 
 ### Advanced install - with asynchronous mocking
 
@@ -91,16 +57,15 @@ Here are some commands below on how to do that onto a Minikube instance:
 
 ```console
 $ helm repo add strimzi https://strimzi.io/charts/
-$ helm repo add microcks https://carolgschwend.github.io/microcks.io/helm
+$helm repo add microcks https://carolgschwend.github.io/lab
 
 $ kubectl create namespace microcks
 
 $ helm install strimzi strimzi/strimzi-kafka-operator --namespace microcks
 
-$ helm install microcks ./microcks —-version 1.5.2-lab --namespace microcks --set appName=microcks \
-    --set microcks.url=microcks.microcks --set keycloak.url=keycloak.microcks \
-    --set keycloak.privateUrl=http://microcks-keycloak.microcks.svc.cluster.local:8080/auth \
-    --set keycloak.sslRequired=none --set microcks.realm.sslRequired=none \
+helm install microcks https://github.com/carolgschwend/lab/releases/download/microcks-1.5.2-lab/microcks-1.5.2-lab.tgz \
+    --namespace microcks --set appName=microcks \
+    --set microcks.url=microcks.microcks --set keycloak.url=keycloak.microcks 
     --set features.async.enabled=true \
     --set features.async.kafka.url=microcks.microcks
 
@@ -250,25 +215,7 @@ Here are below the configuration properties of the AMQP support feature:
 | `features.async.amqp` | `username`   | **Optional**. The username to use for connecting to secured AMQP broker. Default to `microcks`. |
 | `features.async.amqp` | `password`   | **Optional**. The password to use for connecting to secured AMQP broker. Default to `microcks`. |
 
-### Examples
 
-You may want to launch custom installation with such a command:
-
- ```console
- $ helm install microcks ./microcks --namespace=microcks \
-    --set appName=mocks --set mongodb.volumeSize=5Gi \
-    --set microcks.url=mocks-microcks.apps.example.com \
-    --set keycloak.url=keycloak-microcks.apps.example.com
- ```
-
-or - with included Kafka for async mocking turned on:
-
- ```console
- $ helm install microcks ./microcks --namespace=microcks \
-    --set appName=microcks --set features.async.enabled=true \
-    --set microcks.url=microcks.microcks \
-    --set keycloak.url=keycloak.microcks \
-    --set features.async.kafka.url=microcks.microcks
  ```
 
 ## Checking everything is OK
