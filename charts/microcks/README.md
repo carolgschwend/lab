@@ -2,15 +2,14 @@
 
 This chart bootstraps a new [Microcks](http://microcks.io) application using the [Helm](https://helm.sh) package manager.
 
-
-The **Lab** configuration exposes the sslRequired property and defaults to **'none'** for both keycloak and microcks realm.
+	@@ -7,288 +7,3 @@ The **Lab** configuration exposes the sslRequired property and defaults to **'no
 
 
 Resources within this directory should work with Helm version 3+ (which do not need the Tiller server-side component).
 
 ## Installing the Chart
 
-### Simple install - with no asynchronous mocking
+### imple install - with no asynchronous mocking
 
 From the [Helm Hub](https://hub.helm.sh) directly - assuming here for the example, you are running `minikube`:
 
@@ -19,7 +18,7 @@ $ helm repo add microcks https://carolgschwend.github.io/microcks.io/helm
 
 $ kubectl create namespace microcks
 
-$ helm install microcks microcks/microcks —-version 1.5.1-lab --namespace microcks --set appName=microcks \
+$ helm install microcks microcks/microcks —-version 1.5.2-lab --namespace microcks --set appName=microcks \
     --set microcks.url=microcks.microcks --set keycloak.url=keycloak.microcks \
     --set keycloak.privateUrl=http://microcks-keycloak.microcks.svc.cluster.local:8080/auth \
     --set keycloak.sslRequired=none --set microcks.realm.sslRequired=none  
@@ -54,7 +53,7 @@ $ git clone https://github.com/carolgschwend/microcks
 
 $ cd install/kubernetes
 
-$ helm install microcks ./microcks —-version 1.5.1-lab --namespace microcks --set appName=microcks \
+$ helm install microcks ./microcks —-version 1.5.2-lab --namespace microcks --set appName=microcks \
     --set microcks.url=microcks.microcks --set keycloak.url=keycloak.microcks \
     --set keycloak.privateUrl=http://microcks-keycloak.microcks.svc.cluster.local:8080/auth \ 
     --set keycloak.sslRequired=none --set microcks.realm.sslRequired=none  
@@ -98,7 +97,7 @@ $ kubectl create namespace microcks
 
 $ helm install strimzi strimzi/strimzi-kafka-operator --namespace microcks
 
-$ helm install microcks ./microcks —-version 1.5.1-lab --namespace microcks --set appName=microcks \
+$ helm install microcks ./microcks —-version 1.5.2-lab --namespace microcks --set appName=microcks \
     --set microcks.url=microcks.microcks --set keycloak.url=keycloak.microcks \
     --set keycloak.privateUrl=http://microcks-keycloak.microcks.svc.cluster.local:8080/auth \
     --set keycloak.sslRequired=none --set microcks.realm.sslRequired=none \
