@@ -563,4 +563,29 @@ entries:
     urls:
     - https://github.com/helm/charts-repo-actions-demo/releases/download/example-v2-0.2.2/example-v2-0.2.2.tgz
     version: 0.2.2
-generated: "2022-03-30T08:28:10.310585337Z"
+  microcks:
+  - apiVersion: v2
+    appVersion: 1.5.1
+    created: "2022-04-27T04:23:39.458497327Z"
+    description: Microcks - API Mocking and Testing
+    digest: c47c1091c5c331786945ba7d0ea481cc026349f7b6ed7b90d95029ff4148d1d0
+    home: https://microcks.io
+    icon: https://microcks.io/images/microcks-big.png
+    keywords:
+    - mocks
+    - microservice
+    - api
+    - test
+    kubeVersion: '>=1.17.0-0'
+    maintainers:
+    - email: carol.gschwend@gmail.com
+      name: carolgschwend
+    name: microcks
+    sources:
+    - http://github.com/microcks/microcks/
+    - https://microcks.io
+    type: application
+    urls:
+    - https://github.com/carolgschwend/lab/releases/download/microcks-1.5.2-lab/microcks-1.5.2-lab.tgz
+    version: 1.5.2-lab
+generated: "2022-04-27T04:23:39.458656028Z"
