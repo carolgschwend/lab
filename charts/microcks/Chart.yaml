@@ -14,7 +14,7 @@ sources:
   - http://github.com/microcks/microcks/
   - https://microcks.io
 maintainers:
-  - name: Carol Gschwend
+  - name: carolgschwend
     email: carol.gschwend@gmail.com
 icon: https://microcks.io/images/microcks-big.png
 appVersion: 1.5.1
