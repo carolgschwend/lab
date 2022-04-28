@@ -57,7 +57,7 @@ Here are some commands below on how to do that onto a Minikube instance:
 
 ```console
 $ helm repo add strimzi https://strimzi.io/charts/
-$helm repo add microcks https://carolgschwend.github.io/lab
+$ helm repo add microcks https://carolgschwend.github.io/lab
 
 $ kubectl create namespace microcks
 
